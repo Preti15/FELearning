@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import './Page/web-series.js';
 
-export class FeApp extends LitElement {
+export class WebSeriesForm extends LitElement {
   static get properties() {
     return {
       title: { type: String },
@@ -13,6 +12,6 @@ export class FeApp extends LitElement {
   }
 
   render() {
-    return html` <web-series></web-series> `;
+    return html` "Hello World form" `;
   }
 }
