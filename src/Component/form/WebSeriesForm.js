@@ -2,8 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import '@lion/input/lion-input.js';
 import '@lion/select/lion-select.js';
 import '@lion/button/lion-button.js';
+import { LocalizeMixin } from '@lion/localize';
+import '@lion/switch/lion-switch.js';
 
-export class WebSeriesForm extends LitElement {
+export class WebSeriesForm extends LocalizeMixin(LitElement) {
   static get properties() {
     return {
       title: { type: String },
@@ -70,6 +72,13 @@ export class WebSeriesForm extends LitElement {
     `;
   }
 
+  static get localizeNamespaces() {
+    return [
+      { 'lit-html-example': locale => import(`../translations/${locale}.js`) },
+      ...super.localizeNamespaces,
+    ];
+  }
+
   render() {
     return html`
       <h1>Web Series</h1>
@@ -77,13 +86,22 @@ export class WebSeriesForm extends LitElement {
       <lion-form>
         <form class="wb-form">
           <div class="wb-input-group">
-            <lion-input label="Title" name="title"></lion-input>
+            <lion-input
+              label="${this.msgLit('lit-html-example:form.title')}"
+              name="title"
+            ></lion-input>
           </div>
           <div class="wb-input-group">
-            <lion-input label="Director" name="director"></lion-input>
+            <lion-input
+              label="${this.msgLit('lit-html-example:form.director')}"
+              name="director"
+            ></lion-input>
           </div>
           <div class="wb-input-group">
-            <lion-select label="Rating" name="rating">
+            <lion-select
+              label="${this.msgLit('lit-html-example:form.stars')}"
+              name="rating"
+            >
               <select slot="input">
                 <option>Please select</option>
                 <option value="1">1</option>
@@ -95,7 +113,10 @@ export class WebSeriesForm extends LitElement {
             </lion-select>
           </div>
           <div class="wb-input-group">
-            <lion-select label="Streaming On" name="streamingOn">
+            <lion-select
+              label="${this.msgLit('lit-html-example:form.streamingOn')}"
+              name="streamingOn"
+            >
               <select slot="input">
                 <option>Please select</option>
                 <option value="Netfix">Netflix</option>
@@ -106,8 +127,9 @@ export class WebSeriesForm extends LitElement {
             </lion-select>
           </div>
           <div class="wb-input-group">
-            <lion-button>Add</lion-button>
-            <lion-button>Reset</lion-button>
+            <lion-button
+              >${this.msgLit('lit-html-example:form.submitButton')}</lion-button
+            >
           </div>
         </form>
       </lion-form>
