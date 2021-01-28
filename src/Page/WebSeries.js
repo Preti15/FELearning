@@ -12,10 +12,17 @@ export class WebSeries extends LitElement {
     return css``;
   }
 
+  static get localizeNamespaces() {
+    return [
+      {
+        'lit-html-example': locale =>
+          import(`../Component/translations/${locale}.js`),
+      },
+      ...super.localizeNamespaces,
+    ];
+  }
+
   render() {
-    return html`
-      "Hello World page"
-      <web-series-form></web-series-form>
-    `;
+    return html` <web-series-form></web-series-form> `;
   }
 }

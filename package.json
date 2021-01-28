@@ -32,8 +32,12 @@
   "author": "fe-app",
   "license": "MIT",
   "dependencies": {
-    "lit-html": "^1.0.0",
-    "lit-element": "^2.0.1"
+    "@lion/button": "^0.8.10",
+    "@lion/input": "^0.10.16",
+    "@lion/localize": "^0.15.5",
+    "@lion/select": "^0.8.16",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0"
   },
   "eslintConfig": {
     "extends": [
