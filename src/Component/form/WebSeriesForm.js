@@ -85,7 +85,7 @@ export class WebSeriesForm extends LitElement {
           <div class="wb-input-group">
             <lion-select label="Rating" name="rating">
               <select slot="input">
-                <option selected hidden value>Please select</option>
+                <option>Please select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -97,7 +97,7 @@ export class WebSeriesForm extends LitElement {
           <div class="wb-input-group">
             <lion-select label="Streaming On" name="streamingOn">
               <select slot="input">
-                <option selected hidden value>Please select</option>
+                <option>Please select</option>
                 <option value="Netfix">Netflix</option>
                 <option value="Hot-Star">Hot-Star</option>
                 <option value="Amazon Prime">Amazon Prime</option>
