@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import '@lion/form/lion-form.js';
 import '@lion/input/lion-input.js';
 import '@lion/select/lion-select.js';
 import '@lion/button/lion-button.js';

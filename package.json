@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@lion/button": "^0.8.10",
+    "@lion/form": "^0.7.17",
     "@lion/input": "^0.10.16",
     "@lion/localize": "^0.15.5",
     "@lion/select": "^0.8.16",
