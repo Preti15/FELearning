@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/Component/form/web-series-form.js';
+import '../src/Component/web-series-form/web-series-form.js';
 
 describe('webseries form', () => {
   let element;

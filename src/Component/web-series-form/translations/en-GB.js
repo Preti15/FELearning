@@ -1,7 +1,6 @@
 export default {
-  greeting: 'Hello {name}!',
   form: {
-    submitButton: 'Add',
+    addbutton: 'Add',
     title: 'Title',
     director: 'Director',
     streamingOn: 'Streaming On',

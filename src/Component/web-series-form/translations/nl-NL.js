@@ -1,6 +1,6 @@
 export default {
   form: {
-    submitButton: 'Añadir',
+    addbutton: 'Añadir',
     title: ' Título ',
     director: 'Tora',
     streamingOn: 'Streaming en',

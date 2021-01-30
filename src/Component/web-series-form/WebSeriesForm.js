@@ -75,9 +75,13 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
 
   static get localizeNamespaces() {
     return [
-      { 'lit-html-example': locale => import(`../translations/${locale}.js`) },
+      { 'lit-html-example': locale => import(`./translations/${locale}.js`) },
       ...super.localizeNamespaces,
     ];
+  }
+
+  localizeForm(title) {
+    return this.msgLit(`lit-html-example:${title}`);
   }
 
   render() {
@@ -88,21 +92,18 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
         <form class="wb-form">
           <div class="wb-input-group">
             <lion-input
-              label="${this.msgLit('lit-html-example:form.title')}"
+              label=${this.localizeForm('form.title')}
               name="title"
             ></lion-input>
           </div>
           <div class="wb-input-group">
             <lion-input
-              label="${this.msgLit('lit-html-example:form.director')}"
+              label=${this.localizeForm('form.director')}
               name="director"
             ></lion-input>
           </div>
           <div class="wb-input-group">
-            <lion-select
-              label="${this.msgLit('lit-html-example:form.stars')}"
-              name="rating"
-            >
+            <lion-select label=${this.localizeForm('form.stars')} name="rating">
               <select slot="input">
                 <option>Please select</option>
                 <option value="1">1</option>
@@ -115,7 +116,7 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
           </div>
           <div class="wb-input-group">
             <lion-select
-              label="${this.msgLit('lit-html-example:form.streamingOn')}"
+              label=${this.localizeForm('form.streamingOn')}
               name="streamingOn"
             >
               <select slot="input">
@@ -128,9 +129,7 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
             </lion-select>
           </div>
           <div class="wb-input-group">
-            <lion-button
-              >${this.msgLit('lit-html-example:form.submitButton')}</lion-button
-            >
+            <lion-button>${this.localizeForm('form.addbutton')}</lion-button>
           </div>
         </form>
       </lion-form>

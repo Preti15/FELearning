@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import '../Component/form/web-series-form.js';
+import '../Component/web-series-form/web-series-form.js';
 import '@lion/button/lion-button.js';
 import { localize, LocalizeMixin } from '@lion/localize';
 
