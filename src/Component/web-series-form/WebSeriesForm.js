@@ -84,24 +84,24 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
     return this.msgLit(`lit-html-example:${title}`);
   }
 
+  renderInput(label, name) {
+    return html`
+      <div class="wb-input-group">
+        <lion-input label=${this.localizeForm(label)} name=${name}>
+        </lion-input>
+      </div>
+    `;
+  }
+
   render() {
     return html`
       <h1>Web Series</h1>
 
       <lion-form>
         <form class="wb-form">
-          <div class="wb-input-group">
-            <lion-input
-              label=${this.localizeForm('form.title')}
-              name="title"
-            ></lion-input>
-          </div>
-          <div class="wb-input-group">
-            <lion-input
-              label=${this.localizeForm('form.director')}
-              name="director"
-            ></lion-input>
-          </div>
+          ${this.renderInput('form.title', 'title')}
+          ${this.renderInput('form.director', 'director')}
+
           <div class="wb-input-group">
             <lion-select label=${this.localizeForm('form.stars')} name="rating">
               <select slot="input">
