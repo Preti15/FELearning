@@ -93,7 +93,25 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
     `;
   }
 
+  renderSelect(label, name, options) {
+    return html`
+      <div class="wb-input-group">
+        <lion-select label=${this.localizeForm(label)} name=${name}>
+          <select slot="input">
+            <option>Please select</option>
+            ${options.map(value => {
+              return html`<option value=${value}>${value}</option>`;
+            })}
+          </select>
+        </lion-select>
+      </div>
+    `;
+  }
+
   render() {
+    const starOptions = [1, 2, 3, 4, 5];
+    const streamingOnOptions = ['Netfix', 'Hot-Star', 'Amazon Prime', 'Voot'];
+
     return html`
       <h1>Web Series</h1>
 
@@ -101,33 +119,13 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
         <form class="wb-form">
           ${this.renderInput('form.title', 'title')}
           ${this.renderInput('form.director', 'director')}
+          ${this.renderSelect('form.stars', 'rating', starOptions)}
+          ${this.renderSelect(
+            'form.streamingOn',
+            'streamingOn',
+            streamingOnOptions
+          )}
 
-          <div class="wb-input-group">
-            <lion-select label=${this.localizeForm('form.stars')} name="rating">
-              <select slot="input">
-                <option>Please select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </lion-select>
-          </div>
-          <div class="wb-input-group">
-            <lion-select
-              label=${this.localizeForm('form.streamingOn')}
-              name="streamingOn"
-            >
-              <select slot="input">
-                <option>Please select</option>
-                <option value="Netfix">Netflix</option>
-                <option value="Hot-Star">Hot-Star</option>
-                <option value="Amazon Prime">Amazon Prime</option>
-                <option value="Voot">Voot</option>
-              </select>
-            </lion-select>
-          </div>
           <div class="wb-input-group">
             <lion-button>${this.localizeForm('form.addbutton')}</lion-button>
           </div>
