@@ -6,6 +6,11 @@ import '@lion/button/lion-button.js';
 import { LocalizeMixin } from '@lion/localize';
 import '@lion/switch/lion-switch.js';
 
+const formSubmit = ev => {
+  const formData = ev.target.serializedValue;
+  console.log(formData);
+};
+
 export class WebSeriesForm extends LocalizeMixin(LitElement) {
   static get properties() {
     return {
@@ -87,7 +92,11 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
   renderInput(label, name) {
     return html`
       <div class="wb-input-group">
-        <lion-input label=${this.localizeForm(label)} name=${name}>
+        <lion-input
+          label=${this.localizeForm(label)}
+          name=${name}
+          .modelValue=${this.title}
+        >
         </lion-input>
       </div>
     `;
@@ -115,8 +124,8 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
     return html`
       <h1>Web Series</h1>
 
-      <lion-form>
-        <form class="wb-form">
+      <lion-form @submit=${formSubmit}>
+        <form class="wb-form" @submit=${ev => ev.preventDefault()}>
           ${this.renderInput('form.title', 'title')}
           ${this.renderInput('form.director', 'director')}
           ${this.renderSelect('form.stars', 'rating', starOptions)}
@@ -127,7 +136,9 @@ export class WebSeriesForm extends LocalizeMixin(LitElement) {
           )}
 
           <div class="wb-input-group">
-            <lion-button>${this.localizeForm('form.addbutton')}</lion-button>
+            <lion-button @click=${this.formSubmit}
+              >${this.localizeForm('form.addbutton')}</lion-button
+            >
           </div>
         </form>
       </lion-form>
